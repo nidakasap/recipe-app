@@ -9,7 +9,8 @@ const Login = () => {
   const { login } = useUser();
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const isLogedIn = login(email, password);
 
     if (isLogedIn) {
@@ -22,7 +23,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center mb-6 w-full ">
+    <div className="mt-20 flex items-center justify-center mb-6 w-full ">
       <div className="bg-white shadow-md rounded-lg p-20">
         <h1 className="text-2xl font-bold text-center">Welcome!</h1>
         <h2 className="text-neutral-700	font-bold text-center mb-5">
@@ -31,7 +32,7 @@ const Login = () => {
         <form action="#" onSubmit={handleSubmit}>
           <div className="mb-5">
             <label
-              for="email"
+              htmlFor="email"
               className=" text-sm font-medium text-gray-700 mb-2"
             >
               Email Address
@@ -45,10 +46,10 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div class="mb-7">
+          <div className="mb-7">
             <label
-              for="password"
-              class="text-sm font-medium text-gray-700 mb-2"
+              htmlFor="password"
+              className="text-sm font-medium text-gray-700 mb-2"
             >
               Password
             </label>
@@ -63,7 +64,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Login
           </button>

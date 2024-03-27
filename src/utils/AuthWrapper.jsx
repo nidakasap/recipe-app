@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import AppRouter from "../router/AppRouter";
 
 const AuthContext = createContext();
+export const useUser = () => useContext(AuthContext);
 
 const AuthWrapper = () => {
   const [user, setUser] = useState(null);
@@ -28,5 +29,4 @@ const AuthWrapper = () => {
   );
 };
 
-export const useUser = () => useContext(AuthContext);
 export default AuthWrapper;
